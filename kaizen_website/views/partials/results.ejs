@@ -1,0 +1,33 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">Order No</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Paid Date</th>
+          <th scope="col">Order Status</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Customer Name</th>
+          <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- loop to populate author dropdown menu -->
+        <% for(i of results) { %>
+            <tr>
+                <th scope="row"><%=i.Order_No%></th>
+                <td><%=i.StartDate%></td>
+                <td><%=i.EndDate%></td>
+                <td><%=i.PaidDate%></td>
+                <td><%=i.OrderStatus%></td>
+                <td><%=i.ProductName%></td>
+                <td><%=i.Quantity%></td>
+                <td><%=i.Price%></td>
+                <td><%=i.FirstName + " " + i.LastName%></td>
+                <td><%=i.Email%></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
