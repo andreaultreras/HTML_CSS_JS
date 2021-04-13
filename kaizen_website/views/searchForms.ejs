@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Forms</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body class="p-4 m-4">
+    <h1 class="text-center">Search Forms</h1>
+    <%- include('partials/navigation.ejs') %><br>
+
+    <!-- DIFFERENT SEARCH METHODS FOR DATABASE--------------------->
+    <form action="/searchByStatus">
+        <select name="status">
+            <option></option>
+               <!-- loop to populate author dropdown menu -->
+                <% for(i of status) { %>
+                    <option value="<%=i.orderstatus%>"> <%=i.orderstatus%> </option>
+                <% } %>
+        </select>
+        <button>Search by Status</button>
+    </form>
+
+    <form action="/searchFormsByOrder">
+        <input name="orderNo" type="text" placeholder="Enter order no...">
+        <button>Search By Order No</button>
+    </form>
+
+    <br><br>
+
+    <form action="/searchFormsByName">
+        <select name="formName">
+            <option></option>
+            <!-- loop to populate author dropdown menu -->
+            <% for(i of forms) { %>
+                <option value="<%=i.Form_No%>"> <%=i.Form_No + " " + i.FormName%> </option>
+            <% } %> 
+        </select>
+        <button>Search by Form Name</button>
+    </form>
+
+    <form action="/searchFormsByCustomer">
+        <input type="text" name="customerName" placeholder="Enter first name...">
+        <button>Search by Customer Name</button>
+    </form>
+
+    <!-- DISPLAY DATA FROM DATABASE----------------------------->
+    <br><br>
+    <div>
+        <%- include('partials/results.ejs') %><br>
+    </div>
+</body>
+</html>
